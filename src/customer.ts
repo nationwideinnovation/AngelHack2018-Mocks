@@ -3,21 +3,25 @@ export class Customer {
     givenName: string
     middleInitial: string
     familyName: string
+    age: number
+    householdIncome: number
     address: string
     city: string
     state: string
     zip: number
 
 
-    constructor(id: number, streetNumber: number){
+    constructor(id, firstName: string, lastName: string, age: number, householdIncome: number, address: string, city: string, state:string, zip: number){
         this.id = id;
-        this.givenName = this.generateGivenName();
+        this.givenName = firstName
         this.middleInitial = this.generateMiddleInitial();
-        this.familyName = this.generateFamilyName();
-        this.address = streetNumber + ' Nationwide BLVD';
-        this.city = 'Columbus',
-        this.state = 'OH',
-        this.zip = 43215
+        this.familyName = lastName
+        this.age = age
+        this.householdIncome = householdIncome
+        this.address = address
+        this.city = city,
+        this.state = state,
+        this.zip = zip
     }
 
     capFirst(string) {

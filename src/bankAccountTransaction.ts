@@ -8,8 +8,9 @@ export class BankAccountTransaction {
     id: number
     referenceNumber: number
     transactionTimestamp: Date
+    transactionType: TransactionTypes
 
-    constructor(id: number, bankAccountId: number, debitOrCredit: string, date: Date, value: number, description: string) {
+    constructor(id: number, bankAccountId: number, debitOrCredit: string, date: Date, value: number, description: string, transactionType: TransactionTypes) {
         let d = new Date(date)
         this.amount = value
         this.creditDebitType = debitOrCredit
@@ -20,5 +21,21 @@ export class BankAccountTransaction {
         d.setHours(Math.floor(Math.random() * 8) + 8)
         d.setMinutes(Math.floor(Math.random() * 60))
         this.transactionTimestamp = d
+        this.transactionType = transactionType || this.randomTransactionType();
     }
+
+    randomTransactionType(): TransactionTypes {
+        const randomTypes = ['Restaurant', 'Store', 'Other']
+        const typeIndex = Math.round(Math.random() * 2)
+        return TransactionTypes[randomTypes[typeIndex]];
+    }
+}
+
+export enum TransactionTypes {
+    'Restaurant' = 'Restaurant',
+    'Loan' = 'Loan',
+    'Store' = 'Store',
+    'Bill' = 'Bill',
+    'Other' = 'Other',
+    'PayCheck' = 'Paycheck'
 }

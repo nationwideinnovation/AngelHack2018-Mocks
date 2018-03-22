@@ -1,3 +1,5 @@
+import { Customer } from "./customer";
+
 export class BankLoan {
     id: number
     customerId: number
@@ -8,35 +10,34 @@ export class BankLoan {
     monthlyPayment: number
     issueDate: Date
 
-    constructor(id: number, type: LoanTypes, customerId: number) {
+    constructor(id: number, type: LoanTypes, customer: Customer, amount: number) {
         this.id = id;
-        this.customerId = customerId;
+        this.customerId = customer.id;
         this.interestRate = +((Math.random() + 4).toFixed(3))
-        this.issueDate = this.randomDate()
         this.type = type;
+        this.borrowedAmmt = amount;
         if (type.match('Auto')) {
-            this.borrowedAmmt = Math.floor((Math.random() * 2000000) + 1000000);
-            this.currentBalance = Math.floor(this.borrowedAmmt - (Math.random() * 500000));
-            this.monthlyPayment = Math.floor(this.borrowedAmmt / 54 + 300);// +300 for taxes
-            
+            this.monthlyPayment = Math.floor(this.borrowedAmmt / 54);
+            const year = Math.floor(2018 - (Math.random() * 5))
+            this.issueDate = new Date(this.randomDate().setFullYear(year));
+            const numberOfMonths = (new Date(2017, 11, 31).getFullYear() - this.issueDate.getFullYear()) * 12 + (new Date(2017, 11, 31).getMonth() - this.issueDate.getMonth());
+            this.currentBalance = Math.floor(this.borrowedAmmt - (this.borrowedAmmt / 60 * numberOfMonths));
         }
         if (type.match('Mortgage')) {
-            this.borrowedAmmt = Math.floor((Math.random() * 30000000) + 15000000);
-            this.currentBalance = Math.floor(this.borrowedAmmt - Math.random() * 1000000)
-            this.monthlyPayment = Math.floor(this.borrowedAmmt / 200);
+            const ageOfLoan = ((customer.age) % 20) + Math.random() * 5
+            const year = Math.floor(2018 - ageOfLoan)
+            this.issueDate = new Date(this.randomDate().setFullYear(year));
+            this.monthlyPayment = Math.floor(this.borrowedAmmt / 200 + 300); // +300 for taxes
+            this.currentBalance = Math.floor(this.borrowedAmmt - (this.borrowedAmmt / 30 * ageOfLoan));
         }
     }
 
     randomDate() {
-        const start = new Date(2016, 0, 1)
+        const start = new Date(2017, 0, 1)
         const end = new Date(2017, 11, 31)
         return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
     }
 
-    string_of_enum(value) {
-        for (var k in LoanTypes) if (LoanTypes[k] == value) return k;
-        return null;
-    }
 }
 
 export enum LoanTypes {
