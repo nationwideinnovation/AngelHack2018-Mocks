@@ -15,19 +15,19 @@ const bankAccountTransactions: Array<BankAccountTransaction> = [];
 const bankLoans: Array<BankLoan> = [];
 
 //homeowners, austin tx
-const newfamilyHomeowner = new Customer(0, 'Nancy', 'NewFamilyHomeowner', 25, 7500000, '12708 Tierra Grande Trl', 'Austin', 'TX', 78732) //395,000 3bed 2bath
-const averageFamilyHomeowner = new Customer(1, 'Joe', 'AverageHomeowner', 35, 9000000, '10018 Planters Woods Dr', 'Austin', 'TX', 78730) // 575,000 3bed 3bath
-const bankruptFamilyHomeowner = new Customer(2, 'Bob', 'BankruptHomeowner', 49, 3200000, '2014 Whitebead Trl', 'Austin', 'TX', 78734) // 140,000 3bed 2bath
+const newfamilyHomeowner = new Customer(0, 'Nancy', 'NewFamilyHomeowner', 25, 7500000, '12708 Tierra Grande Trl', 'Austin', 'TX', 78732, true, 'HomeOwners') //395,000 3bed 2bath
+const averageFamilyHomeowner = new Customer(1, 'Joe', 'AverageHomeowner', 35, 9000000, '10018 Planters Woods Dr', 'Austin', 'TX', 78730, true, 'HomeOwners') // 575,000 3bed 3bath
+const bankruptFamilyHomeowner = new Customer(2, 'Bob', 'BankruptHomeowner', 49, 3200000, '2014 Whitebead Trl', 'Austin', 'TX', 78734, false, 'None') // 140,000 3bed 2bath
 //homeowners, MtnView CA
-const spenderFamilyHomeowner = new Customer(3, 'Steve', 'SpenderHomeowner', 42, 22000000, '336 Mariposa Ave', 'Mountain View', 'CA', 94041) // 2,500,00 3bed 2bath
-const saverHomeowner = new Customer(4, 'Sally', 'SaverHomeowner', 54, 13000000, '650 Alamo Ct APT 13', 'Mountain View', 'CA', 94043) //598,000 Condo
-const averageHomeowner = new Customer(5, 'Jane', 'JustHomeowner', 72, 17000000, '49 Showers Dr APT J316', 'Mountain View', 'CA', 94040) // 1,388,000 Condo
+const spenderFamilyHomeowner = new Customer(3, 'Steve', 'SpenderHomeowner', 42, 22000000, '336 Mariposa Ave', 'Mountain View', 'CA', 94041, true, 'HomeOwners') // 2,500,00 3bed 2bath
+const saverHomeowner = new Customer(4, 'Sally', 'SaverHomeowner', 54, 13000000, '650 Alamo Ct APT 13', 'Mountain View', 'CA', 94043, true, 'HomeOwners') //598,000 Condo
+const averageHomeowner = new Customer(5, 'Jane', 'JustHomeowner', 72, 17000000, '49 Showers Dr APT J316', 'Mountain View', 'CA', 94040, false, 'Homeowners') // 1,388,000 Condo
 //renters CA
-const renter = new Customer(6, 'Austin', 'Bachelor', 22, 7500000, '707 Continental Cir', 'Mountain View', 'CA', 94040) //$4000/month split 6 ways
-const cautious = new Customer(7, 'Candi', 'Cautious', 30, 9200000, '2400 W El Camino Real', 'Mountain View', 'CA', 94040) ///6375/month split 6 ways
+const renter = new Customer(6, 'Austin', 'Bachelor', 22, 7500000, '707 Continental Cir', 'Mountain View', 'CA', 94040, false, 'Renters') //$4000/month split 6 ways
+const cautious = new Customer(7, 'Candi', 'Cautious', 30, 9200000, '2400 W El Camino Real', 'Mountain View', 'CA', 94040, false, 'None') ///6375/month split 6 ways
 //renters TX
-const green = new Customer(8, 'Gary', 'Green', 26, 5000000, '2325 Newfield Ln', 'Austin', 'TX', 78703) //Rent for 1495/month
-const hipster = new Customer(9, 'Hank', 'Hipster', 24, 3700000, '9500 Jollyville Rd', 'Austin', 'TX', 78759) //Rent 920/month
+const green = new Customer(8, 'Gary', 'Green', 26, 5000000, '2325 Newfield Ln', 'Austin', 'TX', 78703, true, 'Renters') //Rent for 1495/month
+const hipster = new Customer(9, 'Hank', 'Hipster', 24, 3700000, '9500 Jollyville Rd', 'Austin', 'TX', 78759, false, 'Renters') //Rent 920/month
 
 
 const customers: Array<Customer> = [
