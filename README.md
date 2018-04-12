@@ -3,7 +3,7 @@
 ## Creating New Mocks
 
 The recommended way to run typescript files, is to install ts-node: `npm i -g ts-node`.  
-Alternativly, yu can install typescript & use tsc `npm install -g typescript`
+Alternativly, you can install typescript & use tsc `npm install -g typescript`
 
 Assuming you installed ts-node, you can run the generator by running `ts-node generateMocks.ts`
 
